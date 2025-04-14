@@ -1,0 +1,26 @@
+
+@media(max-width:600px){
+    #searchLocation{
+        display: none;
+    }
+    #freshcart{
+        width: 100px;  
+    }
+  
+}
+@media(max-width:800px){
+    #searchLocation{
+        display: none;
+       
+    }
+    #freshcart{
+        width: 200px;  
+    }
+  
+}
+@media(min-width:800px){
+    #list{
+        display: none;
+    }
+}
+
