@@ -4,7 +4,6 @@ export function FreshCart(){
     return(
         <div className="container-fluid">
             <FreshCartHeader/>
-
         </div>
     )
 }
