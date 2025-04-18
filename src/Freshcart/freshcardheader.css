@@ -4,8 +4,9 @@
         display: none;
     }
     #freshcart{
-        width: 100px;  
-    }
+        width: 100px !important;  
+        margin-right: 30px    }
+
   
 }
 @media(max-width:800px){

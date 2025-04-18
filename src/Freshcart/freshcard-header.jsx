@@ -1,29 +1,66 @@
 
 import { useState } from "react";
+import { useFormik } from "formik"
 import "./freshcardheader.css"
 export function FreshCartHeader() {
   const [body] = useState({ width: "87%", margin: "auto" });
   const [logoImage] = useState("freshcartimg/freshcardlogo.png");
-  const [headerTop] = useState({ "margin-top": "10px" });
+  const [headerTop] = useState({ marginTop: "10px" });
   const [headerIcon] = useState(["bi bi-heart", "bi bi-person", "bi bi-bag"]);
-  const [headerIconGap] = useState({ "margin-left": "17px", fontSize: "20px" });
+  const [headerIconGap] = useState({ marginLeft: "17px", fontSize: "20px" });
   const [location, setLocation] = useState({
-    "background-color": "",
+    backgroundColor: "",
     color: "",
   });
 
   function headerLocationOver() {
     setLocation({
-      "background-color": "rgb(83, 78, 78)",
+      backgroundColor: "rgb(83, 78, 78)",
       color: "white",
     });
   }
   function headerLocationOut() {
     setLocation({
-      "background-color": "",
+      backgroundColor: "",
       color: "",
     });
   }
+
+    function ValidationName(formBody){
+      var errors={}
+      if(formBody.Name===""){
+        errors.Name="Please Enter Your Name"
+      }
+      else{
+        errors.Name=""
+      }
+      if(formBody.Email===""){
+        errors.Email="Please Enter Your Email"
+      }
+      else{
+        errors.Email=""
+      }
+      if(formBody.Password===""){
+        errors.Password="Please Enter Password"
+      }
+      else{
+        errors.Password=""
+      }
+      return errors;
+     
+    }
+    const formik = useFormik({
+      initialValues:{
+       "Name":"",
+       "Email":"",
+       "Password":""
+      },
+      validate:ValidationName,
+      onSubmit:(values)=>{
+        alert(JSON.stringify(values));
+      }
+     })
+   
 
   return (
     <div style={body} className="container-fluid overflow-hidden">
@@ -104,9 +141,45 @@ export function FreshCartHeader() {
             </div>
           </div>
 
+          <div className="modal fade" id="account">
+            <div className="modal-dialog modal-centered">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h3>Sing Up</h3>
+                  <button data-bs-dismiss="modal" className="btn btn-close"></button>
+                </div>
+                <div className="modal-body">
+                  <form onSubmit={formik.handleSubmit} >
+                    <dl>
+                      <dt>Name</dt>
+                      <dd><input type="text" className="form-control" name="Name" onBlur={formik.handleBlur}/></dd>
+                      <dd style={{fontSize:"13px",fontWeight:"600"}} className="text-danger ">{formik.errors.Name}</dd>
+                      <dt>Email address</dt>
+                      <dd><input type="email" className="form-control"name="Email" onBlur={formik.handleBlur} /></dd>
+                      <dd style={{fontSize:"13px",fontWeight:"600"}} className="text-danger">{formik.errors.Email}</dd>
+                      <dt>Password</dt>
+                      <dd><input type="password" className="form-control"name="Password" onBlur={formik.handleBlur} /></dd>
+                      <dd style={{fontSize:"13px",fontWeight:"600"}}  className="text-danger">{formik.errors.Password}</dd>
+                      <p style={{fontSize:"13px",fontWeight:"600"}} >By Singnup , you aagree to our <a className="text-decoration-none text-success ms-1" href="">Terms of Service & Pricacy Policy</a></p>
+                      
+                    </dl>
+                     <button className="btn btn-success">Sign Up</button>
+                     <p className="text-center">Already have an account?<a href="" className=" text-decoration-none  ms-1 text-success">Sing in</a>
+                     </p>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div>
           {headerIcon.map((item) => (
-            <span style={headerIconGap} key={item} className={item}></span>
+            item==="bi bi-person"?(
+              <span
+              id="icon"style={headerIconGap}key={item} className={item}data-bs-toggle="modal"data-bs-target="#account"
+              ></span>
+            ):( <span id="icon" style={headerIconGap} key={item} className={item}></span>)
+           
           ))}
           <button data-bs-target="#lists" data-bs-toggle="offcanvas" id="list" className="btn bi bi-list fs-2"></button>
         </div>
