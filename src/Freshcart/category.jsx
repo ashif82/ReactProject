@@ -39,6 +39,39 @@ export function Category(){
                                 )
                               }
                   </div>
+                  <div className="row">
+          
+          <div  className="col-12 col-sm-12 col-lg-6 px-2 py-4" >
+                 <div style={{
+               "backgroundImage":"url('1stcart/banner/grocery-banner.png')",
+              "height":"200px", 
+               'backgroundSize': "cover", 
+              "backgroundPosition": "center", 
+               "borderRadius":"10px"
+             }}>
+              <h2 className="ms-4 pt-4 fw-bold">Fruits & Vegetables</h2>
+              <p className="ms-4">Get Upto 30% off</p>
+              <button className="btn btn-dark ms-4 mt-2">Shop Now</button>
+
+          </div>
+    </div>
+
+<div  className="col-12 col-sm-12 col-lg-6 px-2 py-4" >
+<div style={{
+    "backgroundImage":"url('1stcart/banner/grocery-banner-2.jpg')",
+    
+  
+    "height":"200px", 
+     'backgroundSize': "cover", 
+    "backgroundPosition": "center", 
+    "borderRadius":"10px" 
+  }}>
+    <h2 className="ms-4 pt-4 fw-bold">Freshly Baked Buns</h2>
+    <p className="ms-4">Get Upto 25% Off</p>
+    <button className="btn btn-dark ms-4 mt-2">Shop Now</button>
+  </div>
+</div> 
+   </div>
                 </div>
     )
 
