@@ -1,0 +1,7 @@
+@media(min-width:800px){
+    .best-seller{
+        display: none;
+        background-color: red;
+    
+    }
+}
