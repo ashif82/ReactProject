@@ -1,0 +1,27 @@
+.footer{
+    background-color: rgb(249, 244, 244);
+}
+.row a{
+    text-decoration:none;
+    color:rgb(115, 109, 109);
+    font-size: 15px;
+}
+
+@media(min-width:800px){
+    .last-footer{
+        display: flex;
+        justify-content: end;
+        padding-left: 10px;
+    }
+    .payment{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .playstore{
+        display: flex;
+    }
+    .footer{
+       padding: 40px 40px;
+    }
+}
